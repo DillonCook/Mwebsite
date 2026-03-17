@@ -908,6 +908,10 @@ main {
 }
 
 @media (max-width: 1024px) {
+  .topbar {
+    display: none;
+  }
+
   .hero-grid--media,
   .split-grid,
   .contact-grid,
@@ -932,11 +936,26 @@ main {
 
   .masthead {
     grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 4.6rem;
+    padding-block: 0.5rem;
   }
 
   .mobile-nav {
     display: block;
     justify-self: end;
+  }
+
+  .brand {
+    max-width: min(100%, 12.5rem);
+  }
+
+  .brand-logo {
+    width: min(100%, 12.25rem);
+  }
+
+  .mobile-nav summary {
+    padding: 0.72rem 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -945,9 +964,13 @@ main {
     padding-bottom: 7rem;
   }
 
-  .topbar-inner {
-    justify-content: flex-start;
-    padding: 0.55rem 0;
+  .site-header {
+    background: rgba(252, 250, 245, 0.94);
+  }
+
+  .masthead {
+    min-height: 4.1rem;
+    padding-block: 0.4rem;
   }
 
   .trust-strip__list,
@@ -974,7 +997,16 @@ main {
   }
 
   .brand {
-    max-width: min(100%, 13rem);
+    max-width: min(100%, 10.75rem);
+  }
+
+  .brand-logo {
+    width: min(100%, 10.6rem);
+  }
+
+  .mobile-nav summary {
+    padding: 0.64rem 0.82rem;
+    font-size: 0.92rem;
   }
 
   .mobile-callbar {
