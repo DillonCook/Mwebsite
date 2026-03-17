@@ -186,33 +186,30 @@ main {
 
 .masthead {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 1.25rem;
+  grid-template-columns: minmax(12.5rem, 15rem) minmax(0, 1fr) auto;
+  gap: clamp(0.75rem, 1.8vw, 1.25rem);
   align-items: center;
-  min-height: 5rem;
-  padding-block: 0.6rem;
+  min-height: 5.35rem;
+  padding-block: 0.7rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  max-width: min(100%, 19rem);
-  padding: 0.35rem 0.55rem 0.25rem;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(23, 69, 123, 0.08);
+  max-width: min(100%, 15rem);
 }
 
 .brand-logo {
-  width: min(100%, 18.5rem);
+  width: min(100%, 14.75rem);
   height: auto;
-  filter: drop-shadow(0 8px 18px rgba(23, 69, 123, 0.12));
+  filter: drop-shadow(0 10px 20px rgba(23, 69, 123, 0.16));
 }
 
 .desktop-nav {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: clamp(0.55rem, 0.95vw, 0.95rem);
+  justify-content: flex-end;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -220,6 +217,7 @@ main {
 .mobile-nav nav a {
   color: var(--text-soft);
   font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .desktop-nav a.is-active,
@@ -229,6 +227,7 @@ main {
 
 .header-call {
   white-space: nowrap;
+  padding-inline: 1rem;
 }
 
 .mobile-nav {
@@ -839,8 +838,9 @@ main {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.8fr));
-  gap: 1.35rem;
+  grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 0.78fr));
+  gap: 1.5rem;
+  align-items: start;
 }
 
 .site-footer .eyebrow,
@@ -858,17 +858,13 @@ main {
 .footer-brand {
   display: inline-flex;
   width: fit-content;
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem 0.55rem;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.9rem;
 }
 
 .footer-brand__logo {
-  width: min(100%, 16rem);
+  width: min(100%, 13.75rem);
   height: auto;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.24));
 }
 
 .footer-copy,
@@ -935,7 +931,7 @@ main {
   }
 
   .masthead {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .mobile-nav {
@@ -978,7 +974,7 @@ main {
   }
 
   .brand {
-    max-width: min(100%, 14.5rem);
+    max-width: min(100%, 13rem);
   }
 
   .mobile-callbar {
