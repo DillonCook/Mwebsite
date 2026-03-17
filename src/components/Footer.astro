@@ -1,14 +1,14 @@
 ---
-import { business, navLinks } from "../data/site";
+import { business, navLinks, toHref } from "../data/site";
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="footer-brand" href="/" aria-label={business.shortName}>
+      <a class="footer-brand" href={toHref("/")} aria-label={business.shortName}>
         <img
           class="footer-brand__logo"
-          src={business.logo}
+          src={toHref(business.logo)}
           alt=""
           width="1600"
           height="546"
@@ -27,11 +27,11 @@ import { business, navLinks } from "../data/site";
       <ul class="footer-links">
         {navLinks.map((link) => (
           <li>
-            <a href={link.href}>{link.label}</a>
+            <a href={toHref(link.href)}>{link.label}</a>
           </li>
         ))}
         <li>
-          <a href="/privacy/">Privacy</a>
+          <a href={toHref("/privacy/")}>Privacy</a>
         </li>
       </ul>
     </div>
@@ -54,6 +54,6 @@ import { business, navLinks } from "../data/site";
 
   <div class="mobile-callbar">
     <a class="button button-primary" href={business.phoneHref}>Call Now</a>
-    <a class="button button-secondary" href="/contact/">Contact Us</a>
+    <a class="button button-secondary" href={toHref("/contact/")}>Contact Us</a>
   </div>
 </footer>

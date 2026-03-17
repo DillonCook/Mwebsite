@@ -1,7 +1,10 @@
+const publicSiteUrl = import.meta.env.PUBLIC_SITE_URL || "https://wesleychapelac.com";
+const baseUrl = import.meta.env.BASE_URL || "/";
+
 export const business = {
   shortName: "Wesley Chapel A/C Company",
   legalName: "Wesley Chapel A/C Company",
-  siteUrl: "https://wesleychapelac.com",
+  siteUrl: publicSiteUrl,
   phone: "813-833-1063",
   phoneHref: "tel:+18138331063",
   license: "CAC 1815518",
@@ -255,6 +258,28 @@ export const replacementPriorities = [
   "Being clear about warranty expectations",
 ];
 
+export function withBase(pathname = "/") {
+  if (!pathname.startsWith("/")) {
+    return pathname;
+  }
+
+  const normalizedBase = baseUrl === "/" ? "" : baseUrl.replace(/\/$/, "");
+
+  if (pathname === "/") {
+    return normalizedBase ? `${normalizedBase}/` : "/";
+  }
+
+  return `${normalizedBase}${pathname}`;
+}
+
+export function toHref(href: string) {
+  if (/^(?:[a-z]+:|#|\/\/)/i.test(href)) {
+    return href;
+  }
+
+  return withBase(href);
+}
+
 type BreadcrumbItem = {
   name: string;
   pathname: string;
@@ -278,7 +303,7 @@ type ServiceInput = {
 };
 
 export function absoluteUrl(pathname = "/") {
-  return new URL(pathname, business.siteUrl).toString();
+  return new URL(toHref(pathname), business.siteUrl).toString();
 }
 
 export function createWebPageSchema({

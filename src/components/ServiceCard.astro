@@ -1,4 +1,6 @@
 ---
+import { toHref } from "../data/site";
+
 interface Props {
   href: string;
   title: string;
@@ -8,7 +10,7 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<a class="service-card" href={href}>
+<a class="service-card" href={toHref(href)}>
   <span class="service-card__eyebrow">Core service</span>
   <h3>{title}</h3>
   <p>{body}</p>

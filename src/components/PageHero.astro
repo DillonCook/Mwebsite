@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "./Breadcrumbs.astro";
+import { toHref } from "../data/site";
 
 interface LinkAction {
   href: string;
@@ -44,12 +45,12 @@ const {
         {(actionPrimary || actionSecondary) && (
           <div class="hero-actions">
             {actionPrimary && (
-              <a class="button button-primary" href={actionPrimary.href}>
+              <a class="button button-primary" href={toHref(actionPrimary.href)}>
                 {actionPrimary.label}
               </a>
             )}
             {actionSecondary && (
-              <a class="button button-secondary" href={actionSecondary.href}>
+              <a class="button button-secondary" href={toHref(actionSecondary.href)}>
                 {actionSecondary.label}
               </a>
             )}
@@ -67,7 +68,7 @@ const {
 
       {imageSrc && (
         <div class="hero-media">
-          <img src={imageSrc} alt={imageAlt} loading="eager" />
+          <img src={toHref(imageSrc)} alt={imageAlt} loading="eager" />
         </div>
       )}
     </div>

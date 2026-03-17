@@ -14,6 +14,7 @@ import {
   faqGroups,
   reviewHighlights,
   serviceCards,
+  toHref,
   valuePoints,
 } from "../data/site";
 
@@ -118,7 +119,7 @@ const schema = [
     <div class="container split-grid">
       <div class="media-card">
         <img
-          src="/images/mike-portrait.jpg"
+          src={toHref("/images/mike-portrait.jpg")}
           alt="Mike Reaka standing beside the company van"
           loading="lazy"
         />
@@ -132,7 +133,7 @@ const schema = [
         />
 
         <div class="utility-links">
-          <a class="button button-secondary" href="/about-us/">More About Us</a>
+          <a class="button button-secondary" href={toHref("/about-us/")}>More About Us</a>
           <a class="button button-primary" href={business.phoneHref}>Call {business.phone}</a>
         </div>
       </div>
@@ -174,16 +175,16 @@ const schema = [
         />
         <ul class="text-list">
           <li>
-            <a href="/repair/">See the repair page if the AC is not cooling.</a>
+            <a href={toHref("/repair/")}>See the repair page if the AC is not cooling.</a>
           </li>
           <li>
-            <a href="/maintenance/">See the maintenance page for practical upkeep guidance.</a>
+            <a href={toHref("/maintenance/")}>See the maintenance page for practical upkeep guidance.</a>
           </li>
           <li>
-            <a href="/ac-replacement/">See the replacement page if a bigger decision may be coming.</a>
+            <a href={toHref("/ac-replacement/")}>See the replacement page if a bigger decision may be coming.</a>
           </li>
           <li>
-            <a href="/reviews/">Read reviews from local homeowners.</a>
+            <a href={toHref("/reviews/")}>Read reviews from local homeowners.</a>
           </li>
         </ul>
       </div>

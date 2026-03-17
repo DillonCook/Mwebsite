@@ -1,4 +1,6 @@
 ---
+import { toHref } from "../data/site";
+
 interface Item {
   href: string;
   label: string;
@@ -18,7 +20,7 @@ const { items } = Astro.props;
         {index === items.length - 1 ? (
           <span aria-current="page">{item.label}</span>
         ) : (
-          <a href={item.href}>{item.label}</a>
+          <a href={toHref(item.href)}>{item.label}</a>
         )}
       </li>
     ))}
