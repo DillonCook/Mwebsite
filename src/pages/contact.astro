@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createWebPageSchema,
+} from "../data/site";
+
+const title = "Contact Wesley Chapel A/C Company | Service in Wesley Chapel";
+const description =
+  "Call Wesley Chapel A/C Company for repair, maintenance, or replacement in Wesley Chapel, FL. No public storefront, just straightforward local service.";
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/contact/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "Contact", pathname: "/contact/" },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/contact/"
+  image="/images/service-van.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Phone-first contact"
+    title="Contact Wesley Chapel A/C Company"
+    summary="If you need AC help in Wesley Chapel, the fastest way to reach Wesley Chapel A/C Company is by phone. Call first for urgent issues and for the quickest response."
+    imageSrc="/images/service-van.jpg"
+    imageAlt="Company service van"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/contact/", label: "Contact" },
+    ]}
+    highlights={[
+      "Wesley Chapel homeowners only",
+      "No public storefront address",
+      "Repair-first, no-gimmicks service",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-panel">
+        <SectionHeading
+          eyebrow="Call for service"
+          title="Phone is the fastest way to reach us"
+          intro="Urgent AC problems should be handled by phone. It is the clearest and quickest way to get help."
+        />
+
+        <ul class="contact-stack">
+          <li>
+            <strong>Phone</strong>
+            <a href={business.phoneHref}>{business.phone}</a>
+          </li>
+          <li>
+            <strong>Hours</strong>
+            <ul class="hours-list">
+              {business.hours.map((entry) => (
+                <li>
+                  <span>{entry.label}</span>
+                  <span>{entry.hours}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li>
+            <strong>License</strong>
+            <span>Florida contractor {business.license}</span>
+          </li>
+          <li>
+            <strong>Service area</strong>
+            <span>{business.serviceArea} homeowners only</span>
+          </li>
+        </ul>
+
+        <div class="notice notice--accent">
+          <strong>{business.emergencyHeadline}</strong>
+          <span>{business.emergencySubnote}</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        {business.formAction ? (
+          <>
+            <SectionHeading
+              eyebrow="Online message"
+              title="Send a short message"
+              intro="Use the form for non-urgent requests. If your AC is down and you need a faster response, call instead."
+            />
+
+            <form
+              method="post"
+              action={business.formAction}
+              aria-describedby="contact-form-note"
+            >
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" autocomplete="name" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" autocomplete="tel" required />
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label for="service">Service needed</label>
+                  <select id="service" name="service">
+                    <option>AC Repair</option>
+                    <option>AC Maintenance</option>
+                    <option>AC Replacement</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us what the system is doing."></textarea>
+              </div>
+
+              <p id="contact-form-note" class="notice">
+                No public address is shown on this website. Service is positioned around
+                Wesley Chapel only.
+              </p>
+
+              <button class="button button-primary" type="submit">
+                Send Message
+              </button>
+            </form>
+          </>
+        ) : (
+          <>
+            <SectionHeading
+              eyebrow="Before you call"
+              title="A little detail helps the call go faster"
+              intro="If you have these basics ready, it is easier to understand the problem and tell you what to do next."
+            />
+
+            <div class="surface-card contact-preview">
+              <h3>Helpful details to have ready</h3>
+              <ul class="text-list">
+                <li>What the system is doing, or not doing</li>
+                <li>When the problem started</li>
+                <li>Whether the system is frozen, leaking, or making unusual noise</li>
+                <li>The best phone number to reach you back</li>
+              </ul>
+              <div class="utility-links">
+                <a class="button button-primary" href={business.phoneHref}>Call Now</a>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

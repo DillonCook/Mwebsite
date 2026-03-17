@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FaqList from "../components/FaqList.astro";
+import PageHero from "../components/PageHero.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createFaqSchema,
+  createWebPageSchema,
+  faqGroups,
+  reviewHighlights,
+  serviceCards,
+  valuePoints,
+} from "../data/site";
+
+const title = "Wesley Chapel AC Repair | Wesley Chapel A/C Company";
+const description =
+  "Family-owned AC repair, maintenance, and replacement for Wesley Chapel homeowners. Repair-first service, no gimmicks, licensed and straightforward.";
+
+const homepageFaqs = [
+  faqGroups.repair[0],
+  faqGroups.repair[3],
+  faqGroups.maintenance[0],
+  faqGroups.replacement[1],
+];
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([{ name: "Home", pathname: "/" }]),
+  createFaqSchema(homepageFaqs),
+];
+---
+
+<BaseLayout title={title} description={description} pathname="/" schema={schema}>
+  <PageHero
+    eyebrow="Family-owned AC service in Wesley Chapel, Florida"
+    title="Honest AC Help for Wesley Chapel Homeowners"
+    summary="Wesley Chapel A/C Company provides repair, maintenance, and replacement with a repair-first mindset, straightforward communication, and no gimmicky sales pressure. If your system can be fixed practically, that is where we start."
+    imageSrc="/images/mike-checking-system.jpg"
+    imageAlt="Mike checking an HVAC system"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    highlights={[
+      "Repair-first recommendations",
+      "No pushy sales routine",
+      "Licensed Florida contractor",
+    ]}
+  />
+
+  <section class="trust-strip">
+    <div class="container">
+      <ul class="trust-strip__list">
+        <li>Family-owned</li>
+        <li>Serving Wesley Chapel only</li>
+        <li>Licensed {business.license}</li>
+        <li>Repair-first, no-pressure service</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--spacious">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Straight answers first"
+        title="Most homeowners are not looking for a sales pitch."
+        intro="They want someone to show up, figure out what is actually wrong, explain it clearly, and make the most practical recommendation. That is the standard Wesley Chapel A/C Company tries to keep on every call."
+      />
+
+      <div class="cards-grid">
+        {serviceCards.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Why homeowners call us"
+          title="A calmer kind of AC service"
+          intro="The core promises stay simple because that is what makes them believable."
+        />
+
+        <ul class="text-list">
+          {valuePoints.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </div>
+
+      <aside class="stat-card">
+        <h3>What you can expect</h3>
+        <strong>Truth before pressure</strong>
+        <p>
+          Diagnosis first. Practical options second. Clear communication all the
+          way through.
+        </p>
+        <ul class="pill-list">
+          <li>No gimmicks</li>
+          <li>Repair-first</li>
+          <li>Licensed</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="media-card">
+        <img
+          src="/images/mike-portrait.jpg"
+          alt="Mike Reaka standing beside the company van"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="A local company built on trust"
+          title="Tell the truth. Fix what can be fixed."
+          intro="Mike Reaka and his family have deep roots in Wesley Chapel. The company was built around a simple idea: tell the truth about the problem, fix what can be fixed, and treat customers the way neighbors should be treated."
+        />
+
+        <div class="utility-links">
+          <a class="button button-secondary" href="/about-us/">More About Us</a>
+          <a class="button button-primary" href={business.phoneHref}>Call {business.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="What local homeowners say"
+        title="The strongest proof is what customers say after the work is done."
+        intro="These are the kinds of comments that matter when your house is hot and you need someone trustworthy, responsive, and straightforward."
+      />
+
+      <div class="review-grid">
+        {reviewHighlights.map((review) => (
+          <ReviewCard {...review} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Common questions"
+          title="Quick answers for Wesley Chapel homeowners"
+        intro="A few common questions come up on almost every call. Here are the short answers."
+        />
+        <FaqList items={homepageFaqs} />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Where to next"
+          title="Choose the page that matches the problem"
+          intro="If you already know what you need, go straight to the page that fits your situation."
+        />
+        <ul class="text-list">
+          <li>
+            <a href="/repair/">See the repair page if the AC is not cooling.</a>
+          </li>
+          <li>
+            <a href="/maintenance/">See the maintenance page for practical upkeep guidance.</a>
+          </li>
+          <li>
+            <a href="/ac-replacement/">See the replacement page if a bigger decision may be coming.</a>
+          </li>
+          <li>
+            <a href="/reviews/">Read reviews from local homeowners.</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Need AC help in Wesley Chapel?"
+    body="Call Wesley Chapel A/C Company for repair, maintenance, or replacement guidance that stays practical and straightforward."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

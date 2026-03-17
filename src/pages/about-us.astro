@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import PageHero from "../components/PageHero.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createWebPageSchema,
+  reviewHighlights,
+} from "../data/site";
+
+const title = "About Wesley Chapel A/C Company | Local Family-Owned HVAC Company";
+const description =
+  "Meet Mike Reaka and learn why Wesley Chapel A/C Company serves local homeowners with honest advice, licensed workmanship, and neighborly service.";
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/about-us/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "About", pathname: "/about-us/" },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/about-us/"
+  image="/images/mike-portrait.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Local and family-owned"
+    title="A Local, Family-Owned AC Company Built on Trust"
+    summary="Wesley Chapel A/C Company was built to serve local homeowners with honest HVAC help and practical recommendations. The company exists for people who want straightforward answers, not a polished sales routine."
+    imageSrc="/images/mike-portrait.jpg"
+    imageAlt="Mike Reaka standing beside the company van"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/reviews/", label: "Read Reviews" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/about-us/", label: "About" },
+    ]}
+    highlights={[
+      "Longstanding Wesley Chapel roots",
+      "Repair-first recommendations",
+      `Licensed Florida contractor ${business.license}`,
+    ]}
+  />
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Meet Mike Reaka"
+          title="A company shaped by local accountability"
+          intro="Mike Reaka and his family have longstanding roots in Wesley Chapel. Wesley Chapel A/C Company was built around the idea that local homeowners deserve truthful advice, careful work, and a company they can trust when the heat is not giving them any extra patience."
+        />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="What the company believes"
+          title="Practical values, not marketing theater"
+        />
+        <ul class="text-list">
+          <li>Tell the truth about the problem.</li>
+          <li>Fix what can be fixed.</li>
+          <li>Recommend replacement only when it is practical.</li>
+          <li>Treat customers like neighbors, not transactions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-up">
+      <article class="surface-card">
+        <SectionHeading
+          eyebrow="Grounded values"
+          title="Faith-informed, but still plainspoken"
+          intro="The company's approach is shaped by convictions about honesty, stewardship, and accountability. That shows up less in slogans and more in how recommendations are made and how customers are treated."
+        />
+      </article>
+
+      <article class="surface-card">
+        <SectionHeading
+          eyebrow="Licensed and visible"
+          title="Licensing should be easy to find"
+          intro="Wesley Chapel A/C Company is a licensed Florida contractor. Homeowners deserve to know who they are inviting to work on their system."
+        />
+        <ul class="pill-list">
+          <li>License {business.license}</li>
+          <li>Serving Wesley Chapel</li>
+          <li>Family-owned</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Trust has to be earned"
+        title="What local homeowners say after the work is done"
+      />
+
+      <div class="review-grid">
+        {reviewHighlights.map((review) => (
+          <ReviewCard {...review} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="If you want straightforward local service, call Wesley Chapel A/C Company."
+    body="The company is built for homeowners who want a truthful recommendation and a calmer service experience."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

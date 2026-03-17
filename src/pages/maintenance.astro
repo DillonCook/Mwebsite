@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FaqList from "../components/FaqList.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createFaqSchema,
+  createServiceSchema,
+  createWebPageSchema,
+  faqGroups,
+  maintenanceChecklist,
+  serviceCards,
+} from "../data/site";
+
+const title = "AC Maintenance in Wesley Chapel, FL | Wesley Chapel A/C Company";
+const description =
+  "Thoughtful AC maintenance for Wesley Chapel homeowners without gimmicky contracts or sales-heavy tune-up offers.";
+const maintenanceFaqs = faqGroups.maintenance;
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/maintenance/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "AC Maintenance", pathname: "/maintenance/" },
+  ]),
+  createServiceSchema({
+    pathname: "/maintenance/",
+    name: "AC Maintenance",
+    description,
+  }),
+  createFaqSchema(maintenanceFaqs),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/maintenance/"
+  image="/images/service-van.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Practical upkeep"
+    title="AC Maintenance in Wesley Chapel, FL"
+    summary="Good AC maintenance should help your system last longer and run more reliably. It should not be an excuse for a contract pitch or a stream of upsells. Wesley Chapel A/C Company approaches maintenance with that distinction in mind."
+    imageSrc="/images/service-van.jpg"
+    imageAlt="Wesley Chapel A/C Company service van"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/maintenance/", label: "AC Maintenance" },
+    ]}
+    highlights={[
+      "Practical homeowner guidance",
+      "No contract pressure",
+      "Useful maintenance instead of sales theater",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Homeowner basics"
+          title="A lot of useful maintenance starts with simple habits"
+          intro="In Florida's heat and humidity, regular filter changes matter more than most homeowners are told."
+        />
+
+        <ul class="text-list">
+          <li>Change filters regularly.</li>
+          <li>Keep the outdoor unit clear of overgrowth and debris.</li>
+          <li>Pay attention when the system sounds different or airflow drops off.</li>
+        </ul>
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="When professional maintenance helps"
+          title="Useful maintenance should still be real service"
+          intro="There are times when it makes sense to have the system inspected, cleaned, and checked by someone who knows what to look for. The key is making sure the visit is useful and not just a sales routine in disguise."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="No contract pressure"
+          title="This should not feel like a membership sales page"
+          intro="Wesley Chapel A/C Company does not build maintenance around gimmicks or constant pressure to buy add-ons. The goal is to help you care for the system responsibly and step in when real service is needed."
+        />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="What a practical visit includes"
+          title="What should actually happen"
+        />
+        <ul class="text-list">
+          {maintenanceChecklist.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading eyebrow="Maintenance FAQ" title="Short answers to common concerns" />
+        <FaqList items={maintenanceFaqs} />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Related services"
+          title="If maintenance turns into repair or replacement"
+        />
+        <div class="cards-grid">
+          {serviceCards
+            .filter((service) => service.href !== "/maintenance/")
+            .map((service) => <ServiceCard {...service} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Need sensible AC maintenance in Wesley Chapel?"
+    body="Call if the system is due for real attention or if you want straightforward maintenance guidance."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

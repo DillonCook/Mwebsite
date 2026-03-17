@@ -1,0 +1,74 @@
+---
+import { business, navLinks } from "../data/site";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const isActive = (href: string) => {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath === href;
+};
+---
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href={business.phoneHref}>{business.phone}</a>
+      <span>{business.hoursSummary}</span>
+      <span>Licensed {business.license}</span>
+    </div>
+  </div>
+
+  <div class="container masthead">
+    <a class="brand" href="/" aria-label={business.shortName}>
+      <img
+        class="brand-logo"
+        src={business.logo}
+        alt=""
+        width="330"
+        height="100"
+      />
+      <span class="sr-only">{business.shortName}</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={isActive(link.href) ? "is-active" : undefined}
+          aria-current={isActive(link.href) ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a class="button button-primary header-call" href={business.phoneHref}>
+      Call Now
+    </a>
+
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={isActive(link.href) ? "is-active" : undefined}
+            aria-current={isActive(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a class="button button-primary" href={business.phoneHref}>Call Now</a>
+      </nav>
+    </details>
+  </div>
+</header>

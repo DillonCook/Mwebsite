@@ -1,0 +1,112 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { absoluteUrl, business } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  pathname: string;
+  image?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description,
+  pathname,
+  image = business.ogImage,
+  schema = [],
+} = Astro.props;
+
+const canonical = absoluteUrl(pathname);
+const imageUrl = absoluteUrl(image);
+const schemaItems = Array.isArray(schema) ? schema : [schema];
+const openingHoursSpecification = business.hours
+  .filter((entry) => entry.opens && entry.closes)
+  .map((entry) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: entry.days.map((day) => `https://schema.org/${day}`),
+    opens: entry.opens,
+    closes: entry.closes,
+  }));
+
+const graph = [
+  {
+    "@type": "Organization",
+    "@id": `${business.siteUrl}/#organization`,
+    name: business.shortName,
+    alternateName: business.legalName,
+    url: business.siteUrl,
+    telephone: business.phone,
+  },
+  {
+    "@type": "HVACBusiness",
+    "@id": `${business.siteUrl}/#business`,
+    name: business.shortName,
+    url: business.siteUrl,
+    telephone: business.phone,
+    areaServed: {
+      "@type": "City",
+      name: business.serviceAreaShort,
+    },
+    serviceArea: {
+      "@type": "City",
+      name: business.serviceAreaShort,
+    },
+    openingHoursSpecification,
+    slogan: business.tagline,
+  },
+  {
+    "@type": "WebSite",
+    "@id": `${business.siteUrl}/#website`,
+    url: business.siteUrl,
+    name: business.shortName,
+    description: business.tagline,
+  },
+  ...schemaItems,
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#17457b" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={business.shortName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": graph,
+      })}
+    />
+  </head>
+
+  <body>
+    <Header currentPath={pathname} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

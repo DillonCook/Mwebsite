@@ -1,0 +1,59 @@
+---
+import { business, navLinks } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="footer-brand" href="/" aria-label={business.shortName}>
+        <img
+          class="footer-brand__logo"
+          src={business.logo}
+          alt=""
+          width="330"
+          height="100"
+          loading="lazy"
+        />
+      </a>
+      <h2>Repair-first HVAC help for local homeowners.</h2>
+      <p class="footer-copy">
+        Family-owned, licensed, and built around practical service instead of
+        high-pressure sales.
+      </p>
+    </div>
+
+    <div>
+      <h3>Explore</h3>
+      <ul class="footer-links">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href="/privacy/">Privacy</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>
+        <a href={business.phoneHref}>{business.phone}</a>
+      </p>
+      <p>{business.hoursSummary}</p>
+      <p>Licensed Florida contractor {business.license}</p>
+      <p>Serving {business.serviceArea} homeowners only.</p>
+      <p class="footer-note">No public storefront address is listed on this site.</p>
+    </div>
+  </div>
+
+  <div class="container socket">
+    <p>&copy; {new Date().getFullYear()} {business.shortName}. All rights reserved.</p>
+  </div>
+
+  <div class="mobile-callbar">
+    <a class="button button-primary" href={business.phoneHref}>Call Now</a>
+    <a class="button button-secondary" href="/contact/">Contact Us</a>
+  </div>
+</footer>

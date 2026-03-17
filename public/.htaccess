@@ -1,0 +1,11 @@
+Redirect 301 /home/ /
+Redirect 301 /homepage/ /
+Redirect 301 /services/ /
+Redirect 301 /maintenance/ac-cleaning/ /maintenance/
+Redirect 301 /maintenance/ac-repair/ /repair/
+
+Redirect gone /shortcodes/testimonials/
+Redirect gone /shortcodes/contact-forms/
+Redirect gone /mikes-content-page/
+Redirect gone /mikes-test-page/
+Redirect gone /2675-2/

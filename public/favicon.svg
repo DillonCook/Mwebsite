@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Wesley Chapel AC">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e5ba8" />
+      <stop offset="100%" stop-color="#59a9ef" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#f7f3ea" />
+  <path d="M24 87c12-44 17-50 32-50 8 0 12 3 17 12l8 13 11-24h13L86 92H73L64 76l-8 16H24Z" fill="url(#bg)" />
+  <circle cx="98" cy="31" r="10" fill="#f29f5c" />
+</svg>

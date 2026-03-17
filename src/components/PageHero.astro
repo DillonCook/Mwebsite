@@ -1,0 +1,75 @@
+---
+import Breadcrumbs from "./Breadcrumbs.astro";
+
+interface LinkAction {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  actionPrimary?: LinkAction;
+  actionSecondary?: LinkAction;
+  highlights?: string[];
+  breadcrumbs?: { href: string; label: string }[];
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  imageSrc,
+  imageAlt = "",
+  actionPrimary,
+  actionSecondary,
+  highlights = [],
+  breadcrumbs,
+} = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container">
+    {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+
+    <div class={`hero-grid ${imageSrc ? "hero-grid--media" : "hero-grid--simple"}`}>
+      <div class="hero-copy">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        <p class="lede">{summary}</p>
+
+        {(actionPrimary || actionSecondary) && (
+          <div class="hero-actions">
+            {actionPrimary && (
+              <a class="button button-primary" href={actionPrimary.href}>
+                {actionPrimary.label}
+              </a>
+            )}
+            {actionSecondary && (
+              <a class="button button-secondary" href={actionSecondary.href}>
+                {actionSecondary.label}
+              </a>
+            )}
+          </div>
+        )}
+
+        {highlights.length > 0 && (
+          <ul class="hero-highlights">
+            {highlights.map((highlight) => (
+              <li>{highlight}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {imageSrc && (
+        <div class="hero-media">
+          <img src={imageSrc} alt={imageAlt} loading="eager" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

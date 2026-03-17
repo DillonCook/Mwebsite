@@ -1,0 +1,25 @@
+{
+  "name": "wesley-chapel-ac",
+  "version": "1.0.0",
+  "description": "Static Astro rebuild for Wesley Chapel AC.",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [
+    "astro",
+    "hvac",
+    "local-seo",
+    "wesley-chapel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.1",
+    "astro": "^6.0.5",
+    "sharp": "^0.34.5"
+  }
+}

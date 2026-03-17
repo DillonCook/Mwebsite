@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FaqList from "../components/FaqList.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createFaqSchema,
+  createServiceSchema,
+  createWebPageSchema,
+  faqGroups,
+  replacementFactors,
+  replacementPriorities,
+  serviceCards,
+} from "../data/site";
+
+const title = "AC Replacement in Wesley Chapel, FL | Wesley Chapel A/C Company";
+const description =
+  "When repair no longer makes sense, get practical AC replacement advice and clean installation for Wesley Chapel homes.";
+const replacementFaqs = faqGroups.replacement;
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/ac-replacement/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "AC Replacement", pathname: "/ac-replacement/" },
+  ]),
+  createServiceSchema({
+    pathname: "/ac-replacement/",
+    name: "AC Replacement",
+    description,
+  }),
+  createFaqSchema(replacementFaqs),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/ac-replacement/"
+  image="/images/mike-ac-replacement.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Practical replacement guidance"
+    title="AC Replacement in Wesley Chapel, FL"
+    summary="Most homeowners do not want to replace an AC system before they have to. Wesley Chapel A/C Company approaches replacement from that reality. If repair is still practical, that should be part of the conversation. If replacement truly makes more sense, the goal is a clean, sensible plan without inflated urgency."
+    imageSrc="/images/mike-ac-replacement.jpg"
+    imageAlt="Mike working on an air conditioning replacement"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/ac-replacement/", label: "AC Replacement" },
+    ]}
+    highlights={[
+      "Repair vs replace explained plainly",
+      "No scripted replacement pressure",
+      "Installation quality over flashy add-ons",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="When replacement makes sense"
+          title="Sometimes the practical answer really is a new system"
+          intro="When the repair required for continued operation is too expensive to justify, replacement can be the better long-term decision."
+        />
+
+        <ul class="text-list">
+          {replacementFactors.map((factor) => (
+            <li>{factor}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="What matters most"
+          title="A replacement project should stay grounded"
+          intro="The point is not to sell the flashiest system. The point is to help the homeowner end up with a practical, reliable setup."
+        />
+
+        <ul class="text-list">
+          {replacementPriorities.map((priority) => (
+            <li>{priority}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Repair vs replace"
+          title="This should be an honest conversation"
+          intro="The decision should not be made through fear, scripting, or sales pressure. It should be made by looking clearly at the system, the repair required, and what makes sense for the homeowner."
+        />
+      </div>
+
+      <div class="stat-card">
+        <h3>Why we do not push new systems</h3>
+        <strong>Practical first.</strong>
+        <p>
+          Some companies treat every service call like a sales opportunity.
+          Wesley Chapel A/C Company does not. The goal is to help homeowners make a wise
+          decision when replacement is truly needed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading eyebrow="Replacement FAQ" title="Direct answers for a bigger decision" />
+        <FaqList items={replacementFaqs} />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Related pages"
+          title="If you are still weighing the options"
+        />
+        <div class="cards-grid">
+          {serviceCards
+            .filter((service) => service.href !== "/ac-replacement/")
+            .map((service) => <ServiceCard {...service} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Need a practical second opinion on repair versus replacement?"
+    body="Call Wesley Chapel A/C Company if you want the decision explained clearly before you commit to a major expense."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FaqList from "../components/FaqList.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createFaqSchema,
+  createServiceSchema,
+  createWebPageSchema,
+  faqGroups,
+  serviceCards,
+} from "../data/site";
+
+const title = "AC Repair in Wesley Chapel, FL | Wesley Chapel A/C Company";
+const description =
+  "Fast, honest AC repair for Wesley Chapel homeowners. Practical fixes, clear answers, and no pressure to replace what can be repaired.";
+const repairFaqs = faqGroups.repair;
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/repair/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "AC Repair", pathname: "/repair/" },
+  ]),
+  createServiceSchema({
+    pathname: "/repair/",
+    name: "AC Repair",
+    description,
+  }),
+  createFaqSchema(repairFaqs),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/repair/"
+  image="/images/mike-checking-system.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Repair-first service"
+    title="AC Repair in Wesley Chapel, FL"
+    summary="If your AC is not cooling, airflow is weak, or the system has stopped working, Wesley Chapel A/C Company provides practical repair for Wesley Chapel homeowners. The goal is to find the problem, explain it clearly, and fix what can be fixed without turning every call into a replacement pitch."
+    imageSrc="/images/mike-checking-system.jpg"
+    imageAlt="Technician checking HVAC equipment"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/repair/", label: "AC Repair" },
+    ]}
+    highlights={[
+      "Warm air, low airflow, frozen systems, or sudden breakdowns",
+      "Diagnosis before recommendation",
+      "Repair is considered first when it is practical",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Before you call"
+          title="A few things to check first"
+          intro="Sometimes the issue is simple. Before you call, it is worth checking a few basics."
+        />
+
+        <ul class="text-list">
+          <li>Thermostat: check settings and replace batteries if needed.</li>
+          <li>Air filter: a clogged filter can cause weak airflow and icing.</li>
+          <li>Breaker: check it once. If it trips again, stop there and call.</li>
+        </ul>
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Common problems"
+          title="What repair visits are usually about"
+          intro="These are some of the most common issues homeowners notice before they call."
+        />
+
+        <ul class="pill-list">
+          <li>Warm air</li>
+          <li>Weak airflow</li>
+          <li>Frozen lines</li>
+          <li>No startup</li>
+          <li>Short cycling</li>
+          <li>Unusual noise</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="What to expect"
+          title="Diagnosis first, recommendation second"
+          intro="When the AC stops working, most homeowners want to know what happens next and whether someone is going to try to sell them something they do not need."
+        />
+        <ol class="text-list">
+          <li>We start by diagnosing the actual problem.</li>
+          <li>We explain what is happening in plain language.</li>
+          <li>If a practical repair makes sense, we recommend that first.</li>
+          <li>If a larger decision is truly needed, we explain why without pressure.</li>
+        </ol>
+      </div>
+
+      <div class="stat-card">
+        <h3>Straightforward service matters</h3>
+        <strong>Repair first.</strong>
+        <p>
+          Long-term trust is built by telling the truth, making practical
+          repairs, and respecting the homeowner's budget instead of using fear to
+          force a replacement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <div class="surface-card">
+        <SectionHeading eyebrow="Repair FAQ" title="Answers people usually want before they call" />
+        <FaqList items={repairFaqs} />
+      </div>
+
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Related pages"
+          title="If the issue turns into a bigger decision"
+          intro="If the problem points toward upkeep or replacement, these pages explain the next step clearly."
+        />
+
+        <div class="cards-grid">
+          {serviceCards
+            .filter((service) => service.href !== "/repair/")
+            .map((service) => <ServiceCard {...service} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="If your AC is not cooling in Wesley Chapel, call now."
+    body="The fastest next step is a practical diagnosis and a clear explanation of what is actually wrong."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

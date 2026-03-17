@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FaqList from "../components/FaqList.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import {
+  business,
+  createBreadcrumbSchema,
+  createFaqSchema,
+  createWebPageSchema,
+  faqGroups,
+} from "../data/site";
+
+const title = "Wesley Chapel A/C Company FAQ | Repair, Maintenance, Replacement";
+const description =
+  "Straight answers to common Wesley Chapel A/C Company questions about repairs, filters, tune-ups, replacement decisions, and what to expect.";
+
+const allFaqs = [
+  ...faqGroups.general,
+  ...faqGroups.repair,
+  ...faqGroups.maintenance,
+  ...faqGroups.replacement,
+];
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/faq/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "FAQ", pathname: "/faq/" },
+  ]),
+  createFaqSchema(allFaqs),
+];
+---
+
+<BaseLayout title={title} description={description} pathname="/faq/" schema={schema}>
+  <PageHero
+    eyebrow="Straight answers"
+    title="Wesley Chapel A/C Company FAQ"
+    summary="These are straightforward answers to common questions from Wesley Chapel homeowners. If you need help with a specific problem, the fastest next step is to call."
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/faq/", label: "FAQ" },
+    ]}
+    highlights={[
+      "Service-area questions",
+      "Repair and maintenance guidance",
+      "Repair-vs-replace clarity",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container two-up">
+      <article class="surface-card">
+        <SectionHeading eyebrow="General" title="Local focus and service-area questions" />
+        <FaqList items={faqGroups.general} />
+      </article>
+
+      <article class="surface-card">
+        <SectionHeading eyebrow="Repair" title="Questions people ask when the AC is down" />
+        <FaqList items={faqGroups.repair} />
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-up">
+      <article class="surface-card">
+        <SectionHeading eyebrow="Maintenance" title="Practical upkeep questions" />
+        <FaqList items={faqGroups.maintenance} />
+      </article>
+
+      <article class="surface-card">
+        <SectionHeading eyebrow="Replacement" title="Bigger-decision questions" />
+        <FaqList items={faqGroups.replacement} />
+      </article>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Still have a question?"
+    body="Call Wesley Chapel A/C Company if you want a direct answer about your system and what makes sense next."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import PageHero from "../components/PageHero.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import {
+  allReviews,
+  business,
+  createBreadcrumbSchema,
+  createWebPageSchema,
+} from "../data/site";
+
+const title = "Wesley Chapel A/C Company Reviews | What Homeowners Say";
+const description =
+  "Read what local homeowners say about Wesley Chapel A/C Company and why they trust the company for honest repairs and straightforward service.";
+
+const schema = [
+  createWebPageSchema({
+    pathname: "/reviews/",
+    title,
+    description,
+  }),
+  createBreadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "Reviews", pathname: "/reviews/" },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname="/reviews/"
+  image="/images/mike-ac-replacement.jpg"
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Proof after the work is done"
+    title="What Wesley Chapel Homeowners Say"
+    summary="A good service company should be known less by its slogans and more by the experience customers have after the job is done. These reviews reinforce the qualities Wesley Chapel A/C Company wants to be known for: honesty, responsiveness, practical repairs, and clear communication."
+    imageSrc="/images/mike-ac-replacement.jpg"
+    imageAlt="Mike standing beside a newly installed air conditioning unit"
+    actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    breadcrumbs={[
+      { href: "/", label: "Home" },
+      { href: "/reviews/", label: "Reviews" },
+    ]}
+    highlights={[
+      "Honest diagnosis",
+      "No unnecessary replacement pressure",
+      "Fast, fair, and straightforward service",
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Review themes"
+        title="What customers mention most"
+        intro="These are the things homeowners mention again and again after a good service call."
+      />
+
+      <ul class="pill-list">
+        <li>Honest diagnosis</li>
+        <li>No unnecessary replacement pressure</li>
+        <li>Fast response when the AC is down</li>
+        <li>Fair, straightforward pricing</li>
+        <li>Clear explanations</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="review-grid">
+        {allReviews.map((review) => (
+          <ReviewCard {...review} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Need help with your system?"
+    body="Call if you want the same practical, no-gimmicks approach reflected in these reviews."
+    primaryHref={business.phoneHref}
+    primaryLabel="Call Now"
+    secondaryHref="/contact/"
+    secondaryLabel="Contact Us"
+  />
+</BaseLayout>
