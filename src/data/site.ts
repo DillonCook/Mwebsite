@@ -8,7 +8,7 @@ export const business = {
   serviceArea: "Wesley Chapel, Florida",
   serviceAreaShort: "Wesley Chapel",
   tagline: "Honest air conditioning help for Wesley Chapel homeowners.",
-  logo: "/images/wesley-chapel-ac-logo.png",
+  logo: "/images/wesley-chapel-ac-logo-original.jpg",
   hoursSummary: "Mon-Tue, Thu-Fri 9am-6pm | Wed 9am-5pm | Sat-Sun Closed",
   hours: [
     {

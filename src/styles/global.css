@@ -197,6 +197,10 @@ main {
   display: inline-flex;
   align-items: center;
   max-width: min(100%, 19rem);
+  padding: 0.35rem 0.55rem 0.25rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(23, 69, 123, 0.08);
 }
 
 .brand-logo {
