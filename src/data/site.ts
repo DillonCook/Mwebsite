@@ -10,7 +10,7 @@ export const business = {
   license: "CAC 1815518",
   serviceArea: "Wesley Chapel, Florida",
   serviceAreaShort: "Wesley Chapel",
-  tagline: "Residential A/C service for Wesley Chapel homeowners.",
+  tagline: "I provide residential A/C service for Wesley Chapel homeowners.",
   logo: "/images/wesley-chapel-ac-logo-transparent.png",
   hoursSummary: "Mon-Tue, Thu-Fri 9am-6pm | Wed 9am-5pm | Sat-Sun Closed",
   hours: [
@@ -84,17 +84,17 @@ export const serviceCards = [
   {
     href: "/repair/",
     title: "AC Repair",
-    body: "If your AC is not cooling, airflow is weak, or something does not sound right, we diagnose the problem and focus on the practical fix first.",
+    body: "If your AC is not cooling, airflow is weak, or something does not sound right, I diagnose the problem and focus on the practical fix first.",
   },
   {
     href: "/maintenance/",
     title: "AC Maintenance",
-    body: "Good maintenance should help your system, not create a reason to sell you more. We keep this practical and straightforward.",
+    body: "When maintenance is needed, I keep it practical and focused on helping your system rather than creating a reason to sell you more.",
   },
   {
     href: "/ac-replacement/",
     title: "AC Replacement",
-    body: "When repair no longer makes sense, we help you make a sensible replacement decision without pressure or inflated urgency.",
+    body: "When repair no longer makes sense, I help you think through replacement options and keep the decision grounded.",
   },
 ];
 
@@ -146,17 +146,17 @@ export const faqGroups = {
     {
       question: "Do you only serve Wesley Chapel?",
       answer:
-        "Yes. Wesley Chapel A/C Company is focused on serving homeowners in Wesley Chapel, Florida.",
+        "Yes. I focus on homeowners in Wesley Chapel, Florida.",
     },
     {
       question: "Do you offer emergency service?",
       answer:
-        "Yes. 24 Hour Emergency Service is Available. Please show a little mercy, I require sleep too!",
+        "Yes. I do offer emergency service. Please show a little mercy, I require sleep too!",
     },
     {
       question: "Who is the public site built for?",
       answer:
-        "Homeowners in Wesley Chapel. The public site is intentionally focused on residential service only.",
+        "I built the public site for homeowners in Wesley Chapel, and I keep it focused on residential service only.",
     },
   ],
   repair: [
@@ -178,61 +178,61 @@ export const faqGroups = {
     {
       question: "Do you repair older systems?",
       answer:
-        "Yes, as long as the repair is still practical. Older equipment is evaluated carefully rather than written off automatically.",
+        "Yes, as long as the repair is still practical. I look at older equipment carefully rather than writing it off automatically.",
     },
   ],
   maintenance: [
     {
       question: "Do I really need annual AC maintenance?",
       answer:
-        "Not every system needs the same cadence. What matters is system condition, usage, environment, and whether there are signs that service is actually needed.",
+        "Not every system needs the same cadence. I look at system condition, usage, environment, and whether there are signs that service is actually needed.",
     },
     {
       question: "What does a real maintenance visit include?",
       answer:
-        "It should include actual inspection and service work, not a quick pass-through designed to create sales opportunities.",
+        "When I do a maintenance visit, it should include actual inspection and service work, not a quick pass-through designed to create sales opportunities.",
     },
     {
       question: "Are service contracts required?",
       answer:
-        "No. If your system needs service, you should be able to get it without being locked into a contract.",
+        "No. If your system needs service, I do not think you should have to get locked into a contract first.",
     },
     {
       question: "What is the most useful maintenance step I can do myself?",
       answer:
-        "Regular filter replacement is one of the most useful things a homeowner can do to protect airflow and system health.",
+        "Regular filter replacement is one of the most useful things you can do to protect airflow and system health.",
     },
   ],
   replacement: [
     {
       question: "Should I replace a 10-year-old AC system?",
       answer:
-        "Not automatically. Age matters, but condition, repair cost, and reliability matter too. The system should be evaluated carefully before anyone jumps to replacement.",
+        "Not automatically. I look at age, but I also look at condition, repair cost, and reliability before I tell anyone to replace a system.",
     },
     {
       question: "How do I know when repair no longer makes sense?",
       answer:
-        "That usually comes down to whether the cost and likely future reliability still justify the repair. A clear recommendation should explain that clearly.",
+        "That usually comes down to whether the cost and likely future reliability still justify the repair. If I recommend replacement, I should be able to explain why clearly.",
     },
     {
       question: "What matters most in a replacement project?",
       answer:
-        "Correct planning and installation quality matter more than flashy claims. A properly selected and properly installed system is what you want to pay for.",
+        "Correct planning and installation quality matter more than flashy claims. I would rather focus on getting the system selected and installed properly.",
     },
     {
       question: "Do you offer financing?",
       answer:
-        "Call if you want to ask about current financing or payment options tied to a replacement project.",
+        "Call me if you want to ask about current financing or payment options tied to a replacement project.",
     },
   ],
 };
 
 export const valuePoints = [
-  "You get a real diagnosis before a recommendation.",
-  "Repair is considered first when it is practical.",
-  "You get clear communication about the issue and the available options.",
-  "Your home is treated with respect.",
-  "Licensing stays visible so the basics are easy to verify.",
+  "I start with a real diagnosis before I recommend anything.",
+  "If repair is practical, I consider it first.",
+  "I explain the issue and the available options clearly.",
+  "I treat your home with respect.",
+  "I keep my license information visible so the basics are easy to verify.",
 ];
 
 export const maintenanceChecklist = [

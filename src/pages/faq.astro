@@ -14,7 +14,7 @@ import {
 
 const title = "Wesley Chapel A/C Company FAQ | Repair, Maintenance, Replacement";
 const description =
-  "Straight answers to common Wesley Chapel A/C Company questions about repairs, filters, tune-ups, replacement decisions, and what to expect.";
+  "Straight answers to common questions I hear about repairs, filters, tune-ups, replacement decisions, and what to expect.";
 
 const allFaqs = [
   ...faqGroups.general,
@@ -41,7 +41,7 @@ const schema = [
   <PageHero
     eyebrow="Straight answers"
     title="Wesley Chapel A/C Company FAQ"
-    summary="These are straightforward answers to common questions from Wesley Chapel homeowners. If you need help with a specific problem, the fastest next step is to call."
+    summary="These are straightforward answers to common questions I hear from Wesley Chapel homeowners. If you need help with a specific problem, the fastest next step is to call me."
     actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
     actionSecondary={{ href: "/contact/", label: "Contact Info" }}
     breadcrumbs={[
@@ -49,21 +49,21 @@ const schema = [
       { href: "/faq/", label: "FAQ" },
     ]}
     highlights={[
-      "Service-area questions",
+      "Questions about where I work",
       "Repair and maintenance guidance",
-      "Repair-vs-replace clarity",
+      "Plain repair-vs-replace answers",
     ]}
   />
 
   <section class="section">
     <div class="container two-up">
       <article class="surface-card">
-        <SectionHeading eyebrow="General" title="Local focus and service-area questions" />
+        <SectionHeading eyebrow="General" title="Questions I get about service area and availability" />
         <FaqList items={faqGroups.general} />
       </article>
 
       <article class="surface-card">
-        <SectionHeading eyebrow="Repair" title="Questions people ask when the AC is down" />
+        <SectionHeading eyebrow="Repair" title="Questions people ask me when the AC is down" />
         <FaqList items={faqGroups.repair} />
       </article>
     </div>
@@ -72,20 +72,20 @@ const schema = [
   <section class="section">
     <div class="container two-up">
       <article class="surface-card">
-        <SectionHeading eyebrow="Maintenance" title="Practical upkeep questions" />
+        <SectionHeading eyebrow="Maintenance" title="Questions I hear about upkeep" />
         <FaqList items={faqGroups.maintenance} />
       </article>
 
       <article class="surface-card">
-        <SectionHeading eyebrow="Replacement" title="Bigger-decision questions" />
+        <SectionHeading eyebrow="Replacement" title="Questions I hear about bigger decisions" />
         <FaqList items={faqGroups.replacement} />
       </article>
     </div>
   </section>
 
   <CallToAction
-    title="Still have a question?"
-    body="Call Wesley Chapel A/C Company if you want a direct answer about your system and what makes sense next."
+    title="If you still have a question, call me."
+    body="Call me if you want a direct answer about your system and what makes sense next."
     primaryHref={business.phoneHref}
     primaryLabel="Call Now"
     secondaryHref="/contact/"
