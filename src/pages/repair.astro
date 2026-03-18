@@ -17,7 +17,7 @@ import {
 
 const title = "AC Repair in Wesley Chapel, FL | Wesley Chapel A/C Company";
 const description =
-  "Fast, honest AC repair for Wesley Chapel homeowners. Practical fixes, clear answers, and no pressure to replace what can be repaired.";
+  "Fast, practical AC repair for Wesley Chapel homeowners. Clear answers and no pressure to replace what can be repaired.";
 const repairFaqs = faqGroups.repair;
 
 const schema = [
@@ -53,7 +53,7 @@ const schema = [
     imageSrc="/images/mike-checking-system.jpg"
     imageAlt="Technician checking HVAC equipment"
     actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
-    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Info" }}
     breadcrumbs={[
       { href: "/", label: "Home" },
       { href: "/repair/", label: "AC Repair" },
@@ -120,9 +120,8 @@ const schema = [
         <h3>Straightforward service matters</h3>
         <strong>Repair first.</strong>
         <p>
-          Long-term trust is built by telling the truth, making practical
-          repairs, and respecting the homeowner's budget instead of using fear to
-          force a replacement.
+          The point is to explain the problem, make practical repairs when they
+          make sense, and avoid turning every visit into a replacement pitch.
         </p>
       </div>
     </div>
@@ -157,6 +156,6 @@ const schema = [
     primaryHref={business.phoneHref}
     primaryLabel="Call Now"
     secondaryHref="/contact/"
-    secondaryLabel="Contact Us"
+    secondaryLabel="Contact Info"
   />
 </BaseLayout>

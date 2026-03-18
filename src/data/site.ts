@@ -10,7 +10,7 @@ export const business = {
   license: "CAC 1815518",
   serviceArea: "Wesley Chapel, Florida",
   serviceAreaShort: "Wesley Chapel",
-  tagline: "Honest air conditioning help for Wesley Chapel homeowners.",
+  tagline: "Residential A/C service for Wesley Chapel homeowners.",
   logo: "/images/wesley-chapel-ac-logo-transparent.png",
   hoursSummary: "Mon-Tue, Thu-Fri 9am-6pm | Wed 9am-5pm | Sat-Sun Closed",
   hours: [
@@ -66,7 +66,6 @@ export const business = {
   ],
   emergencyHeadline: "24 Hour Emergency Service is Available",
   emergencySubnote: "Please show a little mercy, I require sleep too!",
-  formAction: "",
   ogImage: "/images/service-van.jpg",
 };
 
@@ -124,7 +123,7 @@ export const allReviews = [
   ...reviewHighlights,
   {
     quote:
-      "Thorough, meticulous, and repairs things properly. You will not find anyone more honest.",
+      "Thorough, meticulous, and repairs things properly. You will not find anyone more dependable.",
     name: "Tim B.",
     label: "Selected homeowner review",
   },
@@ -155,9 +154,9 @@ export const faqGroups = {
         "Yes. 24 Hour Emergency Service is Available. Please show a little mercy, I require sleep too!",
     },
     {
-      question: "Do you service commercial systems?",
+      question: "Who is the public site built for?",
       answer:
-        "This website is focused on residential homeowners in Wesley Chapel.",
+        "Homeowners in Wesley Chapel. The public site is intentionally focused on residential service only.",
     },
   ],
   repair: [
@@ -179,7 +178,7 @@ export const faqGroups = {
     {
       question: "Do you repair older systems?",
       answer:
-        "Yes, as long as the repair is still practical. Older equipment is evaluated honestly rather than written off automatically.",
+        "Yes, as long as the repair is still practical. Older equipment is evaluated carefully rather than written off automatically.",
     },
   ],
   maintenance: [
@@ -208,12 +207,12 @@ export const faqGroups = {
     {
       question: "Should I replace a 10-year-old AC system?",
       answer:
-        "Not automatically. Age matters, but condition, repair cost, and reliability matter too. The system should be evaluated honestly before anyone jumps to replacement.",
+        "Not automatically. Age matters, but condition, repair cost, and reliability matter too. The system should be evaluated carefully before anyone jumps to replacement.",
     },
     {
       question: "How do I know when repair no longer makes sense?",
       answer:
-        "That usually comes down to whether the cost and likely future reliability still justify the repair. A trustworthy recommendation should explain that clearly.",
+        "That usually comes down to whether the cost and likely future reliability still justify the repair. A clear recommendation should explain that clearly.",
     },
     {
       question: "What matters most in a replacement project?",
@@ -231,9 +230,9 @@ export const faqGroups = {
 export const valuePoints = [
   "You get a real diagnosis before a recommendation.",
   "Repair is considered first when it is practical.",
-  "You get clear communication without gimmicks or sales theater.",
+  "You get clear communication about the issue and the available options.",
   "Your home is treated with respect.",
-  "Licensing stays visible because trust matters.",
+  "Licensing stays visible so the basics are easy to verify.",
 ];
 
 export const maintenanceChecklist = [

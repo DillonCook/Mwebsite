@@ -20,7 +20,7 @@ import {
 
 const title = "Wesley Chapel AC Repair | Wesley Chapel A/C Company";
 const description =
-  "Family-owned AC repair, maintenance, and replacement for Wesley Chapel homeowners. Repair-first service, no gimmicks, licensed and straightforward.";
+  "Residential AC repair, maintenance, and replacement for Wesley Chapel homeowners. Family-owned, licensed, and local.";
 
 const homepageFaqs = [
   faqGroups.repair[0],
@@ -43,15 +43,15 @@ const schema = [
 <BaseLayout title={title} description={description} pathname="/" schema={schema}>
   <PageHero
     eyebrow="Family-owned AC service in Wesley Chapel, Florida"
-    title="Honest AC Help for Wesley Chapel Homeowners"
-    summary="Wesley Chapel A/C Company provides repair, maintenance, and replacement with a repair-first mindset, straightforward communication, and no gimmicky sales pressure. If your system can be fixed practically, that is where we start."
+    title="Residential A/C Service in Wesley Chapel"
+    summary="Wesley Chapel A/C Company provides repair, maintenance, and replacement for homeowners in Wesley Chapel. This site is meant to give a clear overview of services, service area, and contact information."
     imageSrc="/images/mike-checking-system.jpg"
     imageAlt="Mike checking an HVAC system"
     actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
-    actionSecondary={{ href: "/contact/", label: "Contact Us" }}
+    actionSecondary={{ href: "/contact/", label: "Contact Info" }}
     highlights={[
-      "Repair-first recommendations",
-      "No pushy sales routine",
+      "Residential service only",
+      "Wesley Chapel homeowners only",
       "Licensed Florida contractor",
     ]}
   />
@@ -62,7 +62,7 @@ const schema = [
         <li>Family-owned</li>
         <li>Serving Wesley Chapel only</li>
         <li>Licensed {business.license}</li>
-        <li>Repair-first, no-pressure service</li>
+        <li>Phone-first contact</li>
       </ul>
     </div>
   </section>
@@ -71,7 +71,7 @@ const schema = [
     <div class="container">
       <SectionHeading
         eyebrow="Straight answers first"
-        title="Most homeowners are not looking for a sales pitch."
+        title="Service information for Wesley Chapel homeowners"
         intro="They want someone to show up, figure out what is actually wrong, explain it clearly, and make the most practical recommendation. That is the standard Wesley Chapel A/C Company tries to keep on every call."
       />
 
@@ -87,9 +87,9 @@ const schema = [
     <div class="container split-grid">
       <div class="surface-card">
         <SectionHeading
-          eyebrow="Why homeowners call us"
-          title="A calmer kind of AC service"
-          intro="The core promises stay simple because that is what makes them believable."
+          eyebrow="What the site covers"
+          title="A straightforward local listing"
+          intro="The basics stay simple: who the company is, what services are offered, and how to get in touch."
         />
 
         <ul class="text-list">
@@ -100,15 +100,15 @@ const schema = [
       </div>
 
       <aside class="stat-card">
-        <h3>What you can expect</h3>
-        <strong>Truth before pressure</strong>
+        <h3>Services</h3>
+        <strong>Repair, maintenance, replacement.</strong>
         <p>
-          Diagnosis first. Practical options second. Clear communication all the
-          way through.
+          Residential service in Wesley Chapel with clear recommendations and
+          phone-first contact.
         </p>
         <ul class="pill-list">
-          <li>No gimmicks</li>
-          <li>Repair-first</li>
+          <li>Residential service</li>
+          <li>Phone-first contact</li>
           <li>Licensed</li>
         </ul>
       </aside>
@@ -127,9 +127,9 @@ const schema = [
 
       <div class="surface-card">
         <SectionHeading
-          eyebrow="A local company built on trust"
-          title="Tell the truth. Fix what can be fixed."
-          intro="Mike Reaka and his family have deep roots in Wesley Chapel. The company was built around a simple idea: tell the truth about the problem, fix what can be fixed, and treat customers the way neighbors should be treated."
+          eyebrow="A local company with Wesley Chapel roots"
+          title="Local roots and practical service"
+          intro="Mike Reaka and his family have deep roots in Wesley Chapel. The company was built around a simple idea: explain the problem plainly, fix what can be fixed, and treat customers the way neighbors should be treated."
         />
 
         <div class="utility-links">
@@ -143,9 +143,9 @@ const schema = [
   <section class="section">
     <div class="container">
       <SectionHeading
-        eyebrow="What local homeowners say"
-        title="The strongest proof is what customers say after the work is done."
-        intro="These are the kinds of comments that matter when your house is hot and you need someone trustworthy, responsive, and straightforward."
+        eyebrow="Customer comments"
+        title="What local homeowners say after the work is done"
+        intro="These are the kinds of comments that matter when your house is hot and you need someone responsive, practical, and straightforward."
       />
 
       <div class="review-grid">
@@ -192,11 +192,11 @@ const schema = [
   </section>
 
   <CallToAction
-    title="Need AC help in Wesley Chapel?"
-    body="Call Wesley Chapel A/C Company for repair, maintenance, or replacement guidance that stays practical and straightforward."
+    title="For service or scheduling, call Wesley Chapel A/C Company."
+    body="Phone is the main contact method for repair, maintenance, and replacement work in Wesley Chapel."
     primaryHref={business.phoneHref}
     primaryLabel="Call Now"
     secondaryHref="/contact/"
-    secondaryLabel="Contact Us"
+    secondaryLabel="Contact Info"
   />
 </BaseLayout>

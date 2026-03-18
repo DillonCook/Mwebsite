@@ -10,7 +10,7 @@ import {
 
 const title = "Contact Wesley Chapel A/C Company | Service in Wesley Chapel";
 const description =
-  "Call Wesley Chapel A/C Company for repair, maintenance, or replacement in Wesley Chapel, FL. No public storefront, just straightforward local service.";
+  "Phone, hours, and service details for Wesley Chapel A/C Company in Wesley Chapel, FL.";
 
 const schema = [
   createWebPageSchema({
@@ -33,9 +33,9 @@ const schema = [
   schema={schema}
 >
   <PageHero
-    eyebrow="Phone-first contact"
-    title="Contact Wesley Chapel A/C Company"
-    summary="If you need AC help in Wesley Chapel, the fastest way to reach Wesley Chapel A/C Company is by phone. Call first for urgent issues and for the quickest response."
+    eyebrow="Listing details"
+    title="Contact and Service Details"
+    summary="This website is a simple listing for Wesley Chapel A/C Company. If you need service, scheduling, or emergency help, use the phone number below."
     imageSrc="/images/service-van.jpg"
     imageAlt="Company service van"
     actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
@@ -44,9 +44,10 @@ const schema = [
       { href: "/contact/", label: "Contact" },
     ]}
     highlights={[
-      "Wesley Chapel homeowners only",
+      "Phone-first contact",
+      "No online request forms",
       "No public storefront address",
-      "Repair-first, no-gimmicks service",
+      "Wesley Chapel homeowners only",
     ]}
   />
 
@@ -91,84 +92,27 @@ const schema = [
         </div>
       </div>
 
-      <div class="contact-form">
-        {business.formAction ? (
-          <>
-            <SectionHeading
-              eyebrow="Online message"
-              title="Send a short message"
-              intro="Use the form for non-urgent requests. If your AC is down and you need a faster response, call instead."
-            />
+      <div class="surface-card">
+        <SectionHeading
+          eyebrow="Before you call"
+          title="A little detail helps the call go faster"
+          intro="This page is meant to cover the basics. If you call with a few details ready, it is easier to explain the next step."
+        />
 
-            <form
-              method="post"
-              action={business.formAction}
-              aria-describedby="contact-form-note"
-            >
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" autocomplete="name" required />
-                </div>
-                <div class="field">
-                  <label for="phone">Phone</label>
-                  <input id="phone" name="phone" autocomplete="tel" required />
-                </div>
-              </div>
+        <ul class="text-list">
+          <li>What the system is doing, or not doing</li>
+          <li>When the problem started</li>
+          <li>Whether the system is frozen, leaking, or making unusual noise</li>
+          <li>The best phone number to reach you back</li>
+        </ul>
 
-              <div class="form-grid">
-                <div class="field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" />
-                </div>
-                <div class="field">
-                  <label for="service">Service needed</label>
-                  <select id="service" name="service">
-                    <option>AC Repair</option>
-                    <option>AC Maintenance</option>
-                    <option>AC Replacement</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-              </div>
+        <div class="notice">
+          No online service request form is used on this site. Phone is the contact method.
+        </div>
 
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us what the system is doing."></textarea>
-              </div>
-
-              <p id="contact-form-note" class="notice">
-                No public address is shown on this website. Service is positioned around
-                Wesley Chapel only.
-              </p>
-
-              <button class="button button-primary" type="submit">
-                Send Message
-              </button>
-            </form>
-          </>
-        ) : (
-          <>
-            <SectionHeading
-              eyebrow="Before you call"
-              title="A little detail helps the call go faster"
-              intro="If you have these basics ready, it is easier to understand the problem and tell you what to do next."
-            />
-
-            <div class="surface-card contact-preview">
-              <h3>Helpful details to have ready</h3>
-              <ul class="text-list">
-                <li>What the system is doing, or not doing</li>
-                <li>When the problem started</li>
-                <li>Whether the system is frozen, leaking, or making unusual noise</li>
-                <li>The best phone number to reach you back</li>
-              </ul>
-              <div class="utility-links">
-                <a class="button button-primary" href={business.phoneHref}>Call Now</a>
-              </div>
-            </div>
-          </>
-        )}
+        <div class="utility-links">
+          <a class="button button-primary" href={business.phoneHref}>Call Now</a>
+        </div>
       </div>
     </div>
   </section>
