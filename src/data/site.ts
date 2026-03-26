@@ -65,7 +65,7 @@ export const business = {
     },
   ],
   emergencyHeadline: "24 Hour Emergency Service is Available",
-  emergencySubnote: "Please show a little mercy, I require sleep too!",
+  emergencySubnote: "If you need after-hours help, call and I will explain the fastest next step.",
   ogImage: "/images/service-van.jpg",
 };
 
@@ -151,7 +151,7 @@ export const faqGroups = {
     {
       question: "Do you offer emergency service?",
       answer:
-        "Yes. I do offer emergency service. Please show a little mercy, I require sleep too!",
+        "Yes. I do offer emergency service. If you need after-hours help, call and I will explain the fastest next step.",
     },
     {
       question: "Who is the public site built for?",

@@ -42,27 +42,27 @@ const schema = [
 
 <BaseLayout title={title} description={description} pathname="/" schema={schema}>
   <PageHero
-    eyebrow="Family-owned AC service in Wesley Chapel, Florida"
+    eyebrow="Licensed residential AC service in Wesley Chapel, Florida"
     title="Residential A/C Service in Wesley Chapel"
-    summary="I provide repair, maintenance, and replacement for homeowners in Wesley Chapel. I built this site to give you a clear overview of what I do, where I work, and how to reach me."
+    summary="Residential AC repair, maintenance, and replacement for Wesley Chapel homeowners. Clear communication, practical recommendations, and direct phone scheduling."
     imageSrc="/images/hero-image.jpeg"
     imageAlt="Mike Reaka standing outdoors beside a service trailer"
     actionPrimary={{ href: business.phoneHref, label: "Call Now" }}
     actionSecondary={{ href: "/contact/", label: "Contact Info" }}
     highlights={[
-      "I serve homeowners only",
-      "I work in Wesley Chapel only",
-      "Licensed Florida contractor",
+      "Residential service for Wesley Chapel homeowners",
+      "Repair-first recommendations when practical",
+      `Licensed Florida contractor ${business.license}`,
     ]}
   />
 
   <section class="trust-strip">
     <div class="container">
       <ul class="trust-strip__list">
-        <li>Family-owned</li>
-        <li>Serving Wesley Chapel only</li>
+        <li>Family-owned company</li>
+        <li>Serving Wesley Chapel homeowners</li>
         <li>Licensed {business.license}</li>
-        <li>Phone-first contact</li>
+        <li>Direct phone scheduling</li>
       </ul>
     </div>
   </section>
@@ -70,9 +70,9 @@ const schema = [
   <section class="section section--spacious">
     <div class="container">
       <SectionHeading
-        eyebrow="Straight answers first"
-        title="Service information for Wesley Chapel homeowners"
-        intro="Most people want someone to show up, figure out what is actually wrong, explain it clearly, and make a practical recommendation. That is what I try to do on every call."
+        eyebrow="Practical service"
+        title="Residential AC services with clear next steps"
+        intro="When the house is hot, most people want a real diagnosis, a plain explanation, and a recommendation that makes sense. That is the standard I try to bring to every call."
       />
 
       <div class="cards-grid">
@@ -87,9 +87,9 @@ const schema = [
     <div class="container split-grid">
       <div class="surface-card">
         <SectionHeading
-          eyebrow="What I cover here"
-          title="What I Do"
-          intro="I keep this simple: what I work on, how I approach it, and how to get in touch."
+          eyebrow="What to expect"
+          title="A straightforward approach to service calls"
+          intro="I keep the process simple: diagnose the problem carefully, explain what I found, and recommend the most practical next step."
         />
 
         <ul class="text-list">
@@ -100,16 +100,17 @@ const schema = [
       </div>
 
       <aside class="stat-card">
-        <h3>Services</h3>
-        <strong>Repair, maintenance, replacement.</strong>
+        <h3>What you can expect</h3>
+        <strong>Clear diagnosis. Practical options.</strong>
         <p>
-          I provide residential service in Wesley Chapel with clear
-          recommendations and phone-first contact.
+          Residential AC service in Wesley Chapel with direct communication,
+          repair-first recommendations when appropriate, and a focus on what is
+          actually needed.
         </p>
         <ul class="pill-list">
-          <li>Residential service</li>
-          <li>Phone-first contact</li>
-          <li>Licensed</li>
+          <li>Residential only</li>
+          <li>Direct phone contact</li>
+          <li>Licensed contractor</li>
         </ul>
       </aside>
     </div>
@@ -127,9 +128,9 @@ const schema = [
 
       <div class="surface-card">
         <SectionHeading
-          eyebrow="My roots in Wesley Chapel"
-          title="Local roots and practical service"
-          intro="My family and I have deep roots in Wesley Chapel. I built this company around a simple idea: explain the problem plainly, fix what can be fixed, and treat people the way neighbors should be treated."
+          eyebrow="Local roots in Wesley Chapel"
+          title="Service built around trust and practicality"
+          intro="My family and I have deep roots in Wesley Chapel. I built this company around a simple idea: explain the issue plainly, fix what can be fixed, and treat people the way neighbors should be treated."
         />
 
         <div class="utility-links">
@@ -192,8 +193,8 @@ const schema = [
   </section>
 
   <CallToAction
-    title="If you need service or scheduling, call me."
-    body="Phone is the main way to reach me for repair, maintenance, and replacement work in Wesley Chapel."
+    title="Call for service or scheduling."
+    body="Phone is the fastest way to reach me for repair, maintenance, and replacement work in Wesley Chapel."
     primaryHref={business.phoneHref}
     primaryLabel="Call Now"
     secondaryHref="/contact/"
